@@ -59,13 +59,12 @@ public class MainController extends HttpServlet {
 		while (keyIter.hasNext()) {
 			String command = (String) keyIter.next();
 
-			// value : edu.kosta.boardAction.WriteFormAction
+			// value : com.cookcook.Action.FormAction
 			String className = pr.getProperty(command);
 
 			try {
 				Class commandClass = Class.forName(className);
 		        Object commandInstance = commandClass.newInstance();
-
 
 				// (key 값, 명령처리 값)
 		        commandMap.put(command, commandInstance);
