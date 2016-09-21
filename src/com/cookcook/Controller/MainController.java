@@ -21,14 +21,12 @@ public class MainController extends HttpServlet {
 	private Map commandMap = new HashMap();
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
 
@@ -74,8 +72,7 @@ public class MainController extends HttpServlet {
 		}
 	}
 
-	protected void process(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String view = null;
 		CommandAction ca = null;
 		System.out.println(commandMap);
@@ -95,7 +92,6 @@ public class MainController extends HttpServlet {
 				//writeForm.do ==>> 파일 이름
 				//System.out.println("if command : " + command);
 			}
-			
 			ca = (CommandAction)commandMap.get(command);
 			//System.out.println("ca : " + ca);
 			

@@ -18,7 +18,12 @@
 				<td valign=top >
 					<jsp:include page="${CONTENT}"/>
 				</td>
-			</tr>			
+			</tr>	
+			<tr>
+				<td valign=top >
+					<jsp:include page="../module/bottom.jsp"/>
+				</td>
+			</tr>		
 		</table>
 	</div>
 </body>

@@ -3,13 +3,13 @@
 <Context reloadable="true">
 <WatchedResource>WEB-INF/web.xml</WatchedResource>
 <Resource
-	 name="jdbc:BoardDB" 
+	 name="jdbc:CookCookDB" 
 	 auth="Container"              
      type="javax.sql.DataSource" 
      driverClassName="oracle.jdbc.OracleDriver"
      url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
-     username="rupinel" 
-     password="qwer1234" 
+     username="admin" 
+     password="oracle" 
      maxTotal="20" 
      maxIdle="10"
      maxWaitMillis="-1"/>
