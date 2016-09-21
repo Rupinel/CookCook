@@ -49,4 +49,4 @@ insert into cook(cookname,garlic,pepper,daikon,mackerel,url) values('고등어조림'
 insert into cook(cookname,beef,url) values('쇠고기꼬치구이','1','http://navercast.naver.com/magazine_contents.nhn?contents_id=37103');
 insert into cook(cookname,onion,garlic,mushroom,beef,url) values('사리원불고기','1','1','1','1','http://navercast.naver.com/magazine_contents.nhn?contents_id=41193');
 
-select cookname from cook;
+select * from cook;
