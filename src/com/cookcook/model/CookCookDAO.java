@@ -3,7 +3,6 @@ package com.cookcook.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.InitialContext;
@@ -28,5 +27,71 @@ public class CookCookDAO { // Controller
 
 		return ds.getConnection();
 	} // getConnection() end
+	
+	public List<CookCookVO> getSelectAll() {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List list = null; // 글 목록 저장 변수;
+		String sql;
+		
+		try {
+			conn = getConnection();
+			sql = "select cookname,url from cook";
+			pstmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				do {
+					CookCookVO vo = new CookCookVO();
+					vo.setCookname(rs.getString("cookname"));
+					vo.setUrl(rs.getString("url"));
+					// list 객체에 데이터 저장빈인 CookCookVO 객체를 저장
+					list.add(vo);
 
+				} while (rs.next());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseUtil.close(conn);
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+		}
+		return list;
+	}
+	
+	public int logincheck(String id, String password) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String dbpasswd = "";		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select * from userInfo where id = ? and password = ?");
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+			rs = pstmt.executeQuery();
+		
+			if (rs.next()) {
+				dbpasswd = rs.getString("password");
+				
+				if (dbpasswd.equals(password)) {
+					result = 1;
+				} 				
+				else
+					result = 0;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		return result;	
+	}	
 }

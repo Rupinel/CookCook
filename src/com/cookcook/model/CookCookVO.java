@@ -11,7 +11,7 @@ public class CookCookVO implements Serializable {
 	
 	public String getCookid() {
 		return cookid;
-	}
+	}	
 	public void setCookid(String cookid) {
 		this.cookid = cookid;
 	}

@@ -9,5 +9,4 @@ public class ContentAction implements CommandAction {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return null;
 	}
-
 }
