@@ -16,7 +16,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MainController</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.cook</url-pattern>
 	</servlet-mapping>
 	<resource-ref>
 		<description>CookCook DBCP Test</description>
