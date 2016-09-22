@@ -1,9 +1,10 @@
 @charset"utf-8";
 html, body {
 	width:100%;
+	height:100%;
 }
 
-/* 전체박스 */
+/* CONTAINER */
 .container {
 	width:100%;
 	height:100%;
@@ -18,6 +19,7 @@ html, body {
 
 /* 탑메뉴 영역*/
 .top_wrap {
+	position:relative;
 	width:100%;
 	height:100px;
 	background:#ebab79;
@@ -30,6 +32,7 @@ html, body {
 
 .menu {
 	position:absolute;
+	width:70%;
 	left:200px;
 	bottom:0;
 }
@@ -45,16 +48,85 @@ html, body {
 	border-radius:10px 10px 0 0;
 }
 
-.menu > li > a {
-	color:#fff;
-}
-
 .menu_active {
 	color:#ebab79;
 	background:#fff url(../img/box_shadow.png) no-repeat bottom right;
 }
 
-.orange {
+.menu_active a{
 	color:#ebab79;
+}
+
+.white {
+	color:#fff;
+}
+
+/* SUBMENU */
+.sub_menu {
+	/*display:none;*/
+	position:absolute;
+	width:100%;
+	height:300px;
+	margin:0 auto;
+	background:#ebab79;
+	/*border:3px solid #ebab79;
+	border-top:none;*/
+	-webkit-border-radius:0 0 20px 20px;
+	-moz-border-radius:0 0 20px 20px;
+	-o-border-radius:0 0 20px 20px;
+	-ms-border-radius:0 0 20px 20px;
+	border-radius:0 0 20px 20px;
+	z-index:10;
+}
+
+.sub_menu li {
+	position:relative;
+	float:left;
+	width:20%;
+	height:150px;
+	color:#fff;
+	text-align:center;
+}
+
+.sub_menu li a {
+	display:block;
+	color:#fff;
+	font-size:14px;
+}
+
+.bwWrapper {
+	position:relative;
+    display:block;
+}
+
+.sub_menu_img {	
+	margin-top:20px;
+}
+
+.gray {	
+	-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+	filter: grayscale(100%);
+
+}
+.sub_menu li a:hover {
+	display:block;
+	width:100%;
+	height:100%;
+	color:#ebab79;
+	font-size:15px;
 	font-weight:bold;
+	background:rgba(255,255,255,.8);
+}
+
+.sub_menu_txt {
+	position:absolute;
+	display:block;
+	width:100%;
+	text-align:center;
+	bottom:0;
+}
+
+/* Contents */
+.contents {
+	width:100%;
 }

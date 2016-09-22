@@ -2,9 +2,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <title>CookCook</title>
-	<link rel="stylesheet"  href="css/reset.css" type="text/css" >
-	<link rel="stylesheet"  href="css/cook_style.css" type="text/css" >
+	<link rel="stylesheet" href="css/reset.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"  />
+	<link rel="stylesheet" href="css/cook_style.css" type="text/css" />
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".sub_menu").hide();
+			// 대메뉴 마우스오버 이벤트
+			$(".menu_over").hover(function(){
+				 $(".sub_menu").slideDown("slow").delay(5000);
+				 $(this).parent("li").addClass("menu_active");
+				 $(this).children("span").removeClass("white");
+			},function(){
+				 $(".sub_menu").slideUp("slow");
+			});
+
+
+			// 서브메뉴 마우스오버 이벤트
+			$(".sub_menu_over").hover(function(){
+				$(this).find("img").removeClass('gray');
+			},function() {
+				$(this).find("img").addClass('gray');
+			});
+		});
+    </script>
 </head>
 <body>
 	<div class="container">
@@ -13,13 +39,70 @@
 				<h1 class="logo"><a href="#"><img src="img/logo.png" alt="CookCook"></a></h1>
 					<!-- 메뉴 시작 -->
 					<ul class="menu">
-						<li><a href="#">전체보기</a></li>
-						<li class="menu_active"><a href="#" ><span class="orange">고기류</span></a></li>
-						<li><a href="#">야채류</a></li>
+						<li><a href="#" class="menu_over">;<span class="white"><i class="fa fa-check-circle-o" aria-hidden="true"></i> &nbsp전체보기</span></a>
+							<!--  서브메뉴 시작 -->
+							<ul class="sub_menu">
+								<li>
+									<a href="#" class="sub_menu_over"><img src="img/thumb/bacon.png" alt="베이컨" class="sub_menu_img gray">
+									<span class="sub_menu_txt">베이컨</span></a>
+								</li>
+								<li>
+									<a href="#" class="sub_menu_over"><img src="img/thumb/beef.png" alt="소고기" class="sub_menu_img gray">
+									<span class="sub_menu_txt">소고기</span></a>
+								</li>
+								<li>
+									<a href="#" class="sub_menu_over"><img src="img/thumb/bacon.png" alt="베이컨" class="sub_menu_img gray">
+									<span class="sub_menu_txt">베이컨</span></a>
+								</li>
+								<li>
+									<a href="#" class="sub_menu_over"><img src="img/thumb/bacon.png" alt="베이컨" class="sub_menu_img gray">
+									<span class="sub_menu_txt">베이컨</span></a>
+								</li>
+								<li>
+									<a href="#" class="sub_menu_over"><img src="img/thumb/bacon.png" alt="베이컨" class="sub_menu_img gray">
+									<span class="sub_menu_txt">베이컨</span></a>
+								</li>
+								<li>
+									<a href="#" class="sub_menu_over"><img src="img/thumb/bacon.png" alt="베이컨" class="sub_menu_img gray">
+									<span class="sub_menu_txt">베이컨</span></a>
+								</li>
+								<li>
+									<a href="#" class="sub_menu_over"><img src="img/thumb/bacon.png" alt="베이컨" class="sub_menu_img gray">
+									<span class="sub_menu_txt">베이컨</span></a>
+								</li>
+								<li>
+									<a href="#" class="sub_menu_over"><img src="img/thumb/bacon.png" alt="베이컨" class="sub_menu_img gray">
+									<span class="sub_menu_txt">베이컨</span></a>
+								</li>
+								<li>
+									<a href="#" class="sub_menu_over"><img src="img/thumb/bacon.png" alt="베이컨" class="sub_menu_img gray">
+									<span class="sub_menu_txt">베이컨</span></a>
+								</li>
+								<li>
+									<a href="#" class="sub_menu_over"><img src="img/thumb/bacon.png" alt="베이컨" class="sub_menu_img gray">
+									<span class="sub_menu_txt">베이컨</span></a>
+								</li>
+							</ul>
+							<!--  서브메뉴 끝 -->
+						</li>
+						<li><a href="#"><span class="white">고기류</span></a>
+							<!--  서브메뉴 시작 -->
+							
+							<!--  서브메뉴 끝 -->
+						</li>
+						<li><a href="#"><span class="white">야채류</span></a>
+							<!--  서브메뉴 시작 -->
+							
+							<!--  서브메뉴 끝 -->
+						</li>
 					</ul>
 					<!--  메뉴 끝 -->
 			</div>
-			
+			<!-- 컨텐츠 시작 -->
+			<div class="contents">
+				<div class="include"></div> 
+			</div>
+			<!-- 컨텐츠 끝 -->
 		</div>
 	</div>
 </body>
