@@ -30,9 +30,9 @@ public class MainController extends HttpServlet {
 		process(request, response);
 	}
 
-	@Override // 초기화!!!
+	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// web.xml의 설정파일을 읽어들인다.
+
 		String props = config.getInitParameter("propertyConfig");
 
 		Properties pr = new Properties();
@@ -57,14 +57,12 @@ public class MainController extends HttpServlet {
 		while (keyIter.hasNext()) {
 			String command = (String) keyIter.next();
 
-			// value : com.cookcook.Action.FormAction
 			String className = pr.getProperty(command);
 
 			try {
 				Class commandClass = Class.forName(className);
 		        Object commandInstance = commandClass.newInstance();
 
-				// (key 값, 명령처리 값)
 		        commandMap.put(command, commandInstance);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -80,23 +78,14 @@ public class MainController extends HttpServlet {
 		try {
 			String command = request.getRequestURI();
 			
-			// /day52_boardMVC/writeForm.do ==>> 실행되는 파일 경로
-			//System.out.println("command : " + command); 
-			
-			// /day52_boardMVC ==>> 프로젝트의 이름
-			//System.out.println("request.getContextPath() : " + request.getContextPath());
 			
 			if(command.indexOf(request.getContextPath()) == 0) {
 				command = command.substring(request.getContextPath().length() + 1);
-				
-				//writeForm.do ==>> 파일 이름
-				//System.out.println("if command : " + command);
+
 			}
 			ca = (CommandAction)commandMap.get(command);
-			//System.out.println("ca : " + ca);
-			
 			view = ca.process(request, response);
-			//System.out.println("view : " + view);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
