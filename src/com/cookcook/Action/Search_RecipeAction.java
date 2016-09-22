@@ -9,5 +9,4 @@ public class Search_RecipeAction implements CommandAction {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return null;
 	}
-
 }

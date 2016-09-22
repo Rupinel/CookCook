@@ -9,11 +9,11 @@ public class ConnectionUtil {
 		try {
 			if(dns.equals("mysql")) {
 				Class.forName("com.mysql.jdbc.Driver");
-				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sampleDB","rupinel","mysql");
+				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sampleDB","admin","oracle");
 				
 			} else if(dns.equals("oracle")) {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","rupinel","qwer1234");				
+				conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","admin","oracle");				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
