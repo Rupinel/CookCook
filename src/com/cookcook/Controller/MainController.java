@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cookcook.Action.CommandAction;
+import com.cookcook.Action.ListAction;
 
 public class MainController extends HttpServlet {
 	private Map commandMap = new HashMap();
@@ -71,7 +72,7 @@ public class MainController extends HttpServlet {
 	}
 
 	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = null;
+		String view = "";
 		CommandAction ca = null;
 		System.out.println(commandMap);
 
@@ -84,6 +85,7 @@ public class MainController extends HttpServlet {
 
 			}
 			ca = (CommandAction)commandMap.get(command);
+			
 			view = ca.process(request, response);
 
 		} catch (Exception e) {
@@ -92,7 +94,7 @@ public class MainController extends HttpServlet {
 		
 		request.setAttribute("CONTENT", view);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/template/template.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/template.jsp");
 		dispatcher.forward(request, response);
 	}
 }

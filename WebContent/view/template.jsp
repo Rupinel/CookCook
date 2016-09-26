@@ -18,7 +18,7 @@
 			
 			<tr>	
 				<td>
-					<jsp:include page="../cook/searchform.jsp"/>
+					<jsp:include page="${CONTENT}"/>
 				</td>
 			</tr>
 			

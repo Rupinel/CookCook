@@ -28,5 +28,45 @@ public class CookCookDAO { // Controller
 
 		return ds.getConnection();
 	} // getConnection() end
+	
+	public List<CookCookVO> getSelectAll() {
+	
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<CookCookVO> list = null;
+		StringBuffer sb = new StringBuffer();
+		String sql = "select cookname, url from cook";
+
+		try {
+			conn = getConnection();
+			
+
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				list = new ArrayList();
+
+				do {
+					CookCookVO vo = new CookCookVO();
+					vo.setCookname(rs.getString("cookname"));
+					vo.setUrl(rs.getString("url"));
+
+					list.add(vo);
+
+				} while (rs.next());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseUtil.close(conn);
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+		}
+
+		return list;
+	}
 
 }
