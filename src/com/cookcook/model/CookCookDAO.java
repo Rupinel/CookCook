@@ -8,7 +8,7 @@ import java.util.List;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import dbclose.util.CloseUtil;
+import com.cookcook.model.dbutil.CloseUtil;
 
 public class CookCookDAO { // Controller
 	private static CookCookDAO instance = new CookCookDAO();
@@ -66,20 +66,57 @@ public class CookCookDAO { // Controller
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String dbpasswd = "";		
+		String dbid = "";
+		String dbpassword = "";		
 		int result = 0;
 		
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select * from userInfo where id = ? and password = ?");
+			pstmt = conn.prepareStatement("select id,password from userInfo where id = ? and password = ?");
 			pstmt.setString(1, id);
 			pstmt.setString(2, password);
 			rs = pstmt.executeQuery();
 		
 			if (rs.next()) {
-				dbpasswd = rs.getString("password");
 				
-				if (dbpasswd.equals(password)) {
+				dbid = rs.getString("id");
+				dbpassword = rs.getString("password");
+				
+				if ( dbid.equals(id) && dbpassword.equals(password) ) {
+					result = 1;
+				} 				
+				else {
+					result = 0;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		return result;	
+	}
+	
+	public int adminCheck(String id) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String isadmin = "";		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select isadmin from userInfo where id = ?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				isadmin = rs.getString("isadmin");
+				
+				if (isadmin.equals("1")) {
 					result = 1;
 				} 				
 				else
@@ -92,6 +129,7 @@ public class CookCookDAO { // Controller
 			CloseUtil.close(pstmt);
 			CloseUtil.close(conn);
 		}
-		return result;	
-	}	
+		
+		return result;
+	}
 }

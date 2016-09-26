@@ -1,0 +1,12 @@
+package com.cookcook.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Search_RecipeAction implements CommandAction {
+
+	@Override
+	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		return null;
+	}
+}
