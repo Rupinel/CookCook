@@ -46,6 +46,10 @@
 																									
 						<!-- 냉장고 재료 선택 결과 영역 시작-->
 						<div class="choice_result"><i class="fa fa-chevron-right" aria-hidden="true"></i> 냉장고 속 재료를 선택해주세요 (최대 3개)
+							<!--span class="choice_material"> 달걀 </span>
+							<span class="choice_material"> 파 </span>
+							<span class="choice_material"> 베이컨 </span>
+							<input type="button" class="btn_search" value="요리 찾기" /-->
 						</div>
 						<!-- 냉장고 재료 선택 결과 영역 끝-->
 
@@ -53,7 +57,7 @@
 						<form action="searchpro.jsp" method="get">
 						<div class="search_wrap">
 							<div class="search">
-								<input type="search" class="input_search" placeholder="요리명을 검색해 주세요"> <input type="button" value="검색" class="btn_search">
+								<input type="search" class="input_search" placeholder="재료명, 요리명을 검색해 주세요"> <input type="button" value="검색" class="btn_search">
 								<jsp:include page="../search/searchform.jsp" />
 							</div>
 						<!--  검색 영역 끝 -->
@@ -374,59 +378,66 @@
 				<!--div class="includedContent">
 					<c:import url="http://navercast.naver.com/magazine_contents.nhn?contents_id=119708" />
 				</div--> 
-				<div class="material_table_wrap">
-					<!-- 고기류 테이블 시작-->
-					<div class="material_title"><i class="fa fa-paw" aria-hidden="true"></i>&nbsp; 고기류</div>
-					<table class="material_table">
-						<tr>
-							<td><input onclick="cc(this)" type="checkbox" name="str11" value="pork" class="check">돼지고기</td>
-							<td><input onclick="cc(this)" type="checkbox" name="str12" value="beef" class="check"> 소고기</td>
-						</tr>
-						<tr>
-							<td><input onclick="cc(this)" type="checkbox" name="str13" value="chicken" class="check"> 닭고기</td>
-							<td><input onclick="cc(this)" type="checkbox" name="str14" value="sausage" class="check"> 소세지</td>
-						</tr>
-						<tr>
-							<td><input onclick="cc(this)" type="checkbox" name="str15" value="bacon" class="check"> 베이컨</td>
-							<td><input onclick="cc(this)" type="checkbox" name="str16" value="mackerel" class="check"> 고등어</td>
-						</tr>
-						<tr>
-							<td><input onclick="cc(this)" type="checkbox" name="str17" value="squid" class="check"> 오징어</td>
-							<td><input onclick="cc(this)" type="checkbox" name="str18" value="saury" class="check"> 꽁치</td>
-						</tr>
-						<tr>
-							<td><input onclick="cc(this)" type="checkbox" name="str19" value="mussel" class="check"> 홍합</td>
-							<td><input onclick="cc(this)" type="checkbox" name="str20" value="cheese" class="check"> 치즈</td>
-						</tr>
-					</table>
-					<!-- 고기류 테이블 끝-->
-
-					<!-- 야채류 테이블 시작-->
-					<div class="material_title"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;야채류</div>
-					<table class="material_table">
-						<tr>
-							<td><input onclick="cc(this)" type="checkbox" name="str1" value="egg" class="check"> 달걀</td>
-							<td><input onclick="cc(this)" type="checkbox" name="str2" value="carrot" class="check"> 당근</td>
-						</tr>
-						<tr>
-							<td><input onclick="cc(this)" type="checkbox" name="str3" value="onion" class="check"> 양파</td>
-							<td><input onclick="cc(this)" type="checkbox" name="str4" value="potato" class="check"> 감자</td>
-						</tr>
-						<tr>
-							<td><input onclick="cc(this)" type="checkbox" name="str5" value="garlic" class="check"> 마늘</td>
-							<td><input onclick="cc(this)" type="checkbox" name="str6" value="mushroom" class="check"> 버섯</td>
-						</tr>
-						<tr>
-							<td><input onclick="cc(this)" type="checkbox" name="str7" value="pepper" class="check"> 고추</td>
-							<td><input onclick="cc(this)" type="checkbox" name="str8" value="daikon" class="check">  무</td>
-						</tr>
-						<tr>
-							<td><input onclick="cc(this)" type="checkbox" name="str9" value="lettuce" class="check"> 양상추</td>
-							<td><input onclick="cc(this)" type="checkbox" name="str10" value="pumpkin" class="check"> 애호박</td>
-						</tr>
-					</table>
-					<!-- 야채류 테이블 끝-->
-					<input type="button" value=" 요리 찾기 " class="btn_recipe">
+				<div class="recipe_list_wrap">
+					<span class="recipe_result_txt">총 3개의 레시피가 검색되었습니다.</span>
+					<!-- 리스트 시작 -->
+					<ul class="recipe_list">
+					
+						<li>
+							<div class="recipe">
+								<div class="recipe_content">
+									<a href="#">
+										<p class="recipe_title"><span>애호박 무침</span> </p>
+										<p class="recipe_material"><span>애호박</span></p>
+										<p class="recipe_img">							
+											<img src="http://ncc.phinf.naver.net/20160530_222/1464576801203l7Pt7_JPEG/image.JPEG?type=f240_240" />
+										</p>
+										<p class="detail_view">
+											<i class="fa fa-search" aria-hidden="true"></i> &nbsp; 상세보기
+										</p>
+									</a>
+								</div>
+							</div>
+						</li>
+						
+						<li>
+							<div class="recipe">
+								<div class="recipe_content">
+									<a href="#">
+										<p class="recipe_title"><span>애호박 무침</span> </p>
+										<p class="recipe_material">
+											<span>애호박</span>
+											<p class="recipe_img">							
+												<img src="http://ncc.phinf.naver.net/20160530_222/1464576801203l7Pt7_JPEG/image.JPEG?type=f240_240" />
+											</p>
+										</p>
+										<p class="detail_view">
+											<i class="fa fa-search" aria-hidden="true"></i> &nbsp; 상세보기
+										</p>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="recipe">
+								<div class="recipe_content">
+									<a href="#">
+										<p class="recipe_title"><span>애호박 무침</span> </p>
+										<p class="recipe_material">
+											<span>애호박</span>
+											<p class="recipe_img">							
+												<img src="http://ncc.phinf.naver.net/20160530_222/1464576801203l7Pt7_JPEG/image.JPEG?type=f240_240" />
+											</p>
+										</p>
+										<p class="detail_view">
+											<i class="fa fa-search" aria-hidden="true"></i> &nbsp; 상세보기
+										</p>
+									</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- 리스트 끝 -->
 				</div>
 			</div>
 			<!-- 컨텐츠 끝 -->
